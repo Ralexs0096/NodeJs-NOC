@@ -39,6 +39,14 @@ export class FileSystemDataSource implements LogDataSource {
       fs.appendFileSync(this.highLogsPath, logAsJson);
     }
   }
+
+  private getLogsFromFile = (path: string): Array<LogEntity> => {
+    const content = fs.readFileSync(path, 'utf-8');
+    const logs = content.split('\n').map(LogEntity.fromJson);
+
+    return logs;
+  };
+
   getLogs(severityLevel: LogSeverityLevel): Promise<Array<LogEntity>> {
     throw new Error('Method not implemented.');
   }
