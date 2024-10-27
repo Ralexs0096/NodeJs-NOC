@@ -47,7 +47,19 @@ export class FileSystemDataSource implements LogDataSource {
     return logs;
   };
 
-  getLogs(severityLevel: LogSeverityLevel): Promise<Array<LogEntity>> {
-    throw new Error('Method not implemented.');
+  getLogs(severityLevel: LogSeverityLevel): Array<LogEntity> {
+    switch (severityLevel) {
+      case LogSeverityLevel.low:
+        return this.getLogsFromFile(this.allLogsPath);
+
+      case LogSeverityLevel.medium:
+        return this.getLogsFromFile(this.mediumLogsPath);
+
+      case LogSeverityLevel.high:
+        return this.getLogsFromFile(this.highLogsPath);
+
+      default:
+        throw new Error(`${severityLevel} not implemented`);
+    }
   }
 }
