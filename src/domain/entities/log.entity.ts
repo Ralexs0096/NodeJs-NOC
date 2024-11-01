@@ -4,7 +4,7 @@ export enum LogSeverityLevel {
   high = 'high'
 }
 
-interface LogEntityOptions {
+export interface LogEntityOptions {
   level: LogSeverityLevel;
   message: string;
   origin: string;
