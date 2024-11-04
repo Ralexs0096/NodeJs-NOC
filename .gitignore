@@ -1,8 +1,16 @@
-/node_modules
+node_modules/
 .env
 .DS_Store
 logs/
-.env
-mongo/
-postgres/
 .vscode
+
+# Mongo
+mongo/
+mongo-test/
+
+# Postgres
+postgres/
+postgres-test/
+
+# testing
+coverage/
