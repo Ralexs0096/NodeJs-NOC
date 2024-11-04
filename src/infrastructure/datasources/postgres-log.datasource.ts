@@ -13,6 +13,7 @@ export class PostgresLogDatasource implements LogDataSource {
         level
       }
     });
+    console.log('Log created on Postgres');
   }
 
   async getLogs(severityLevel: LogSeverityLevel): Promise<Array<LogEntity>> {
